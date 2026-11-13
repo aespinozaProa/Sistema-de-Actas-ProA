@@ -2,5 +2,21 @@ name = "proa-actas-api"
 main = "src/index.js"
 compatibility_date = "2026-11-06"
 
+[ai]
+binding = "AI"
+
+[[durable_objects.bindings]]
+name = "RECORD_WRITER"
+class_name = "RecordWriter"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["RecordWriter"]
+
+[vars]
+ADMIN_EMAILS = "micarranza@escuelasproa.edu.ar,despenaderos.ds@escuelasproa.edu.ar,gdlnievasrodriguez@escuelasproa.edu.ar"
+VOICE_WHISPER_MODEL = "@cf/openai/whisper-large-v3-turbo"
+VOICE_REVIEW_MODEL = "@cf/meta/llama-3.1-8b-instruct-fp8"
+
 # Configure with: wrangler secret put GOOGLE_CLIENT_ID (and each secret below)
 # GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, SPREADSHEET_ID, ALLOWED_ORIGIN

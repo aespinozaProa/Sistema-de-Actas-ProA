@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = __dirname;
 const clients = new Set();
-const openPage = () => { if (process.platform === 'win32') require('node:child_process').execFile('rundll32.exe', ['url.dll,FileProtocolHandler', 'http://localhost:4173/?demo=1']); };
+const openPage = () => { if (process.platform === 'win32') require('node:child_process').execFile('rundll32.exe', ['url.dll,FileProtocolHandler', 'http://localhost:4173/']); };
 const types = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.webmanifest':'application/manifest+json','.png':'image/png','.svg':'image/svg+xml'};
 const allowed = name => name === 'index.html' || name === 'manifest.webmanifest' || name === 'sw.js' || name.startsWith('assets/');
 http.createServer((req, res) => {
@@ -22,7 +22,7 @@ http.createServer((req, res) => {
     res.end(data);
   });
 }).listen(4173, '127.0.0.1', () => {
-  console.log('Vista local: http://localhost:4173/?demo=1 — cerrar esta ventana para detener.');
+  console.log('Vista local: http://localhost:4173/ — cerrar esta ventana para detener.');
   openPage();
 }).on('error', error => {
   if (error.code === 'EADDRINUSE') { console.log('Ya hay un servidor en el puerto 4173.'); openPage(); process.exit(0); }

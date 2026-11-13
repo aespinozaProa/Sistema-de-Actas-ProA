@@ -4,3 +4,5 @@ node_modules/
 .dev.vars
 worker/.dev.vars
 worker/wrangler.toml
+worker/wrangler.preview.toml
+graphify-out/
