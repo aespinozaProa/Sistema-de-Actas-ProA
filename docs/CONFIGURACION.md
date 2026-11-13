@@ -12,7 +12,7 @@ El servicio independiente de Apps Script necesita `SPREADSHEET_ID` con el ID de 
 
 ## Acceso y privacidad
 
-El ingreso requiere una cuenta Google verificada de `@escuelasproa.edu.ar`. Configurá `GOOGLE_CLIENT_ID` en el Worker y `PROA_GOOGLE_CLIENT_ID` en la página con el ID del cliente creado en el proyecto institucional. El servidor verifica firma, audiencia, vencimiento y dominio de Google. Las cuentas de `ADMIN_EMAILS` son administradoras; otras cuentas institucionales son autoras. La gestión individual de accesos no está habilitada. Se comprobó el ingreso con una cuenta institucional; todavía se requiere completar las demás pruebas antes de usar datos reales.
+El ingreso requiere una cuenta Google verificada de `@escuelasproa.edu.ar`. Configurá `GOOGLE_CLIENT_ID` en el Worker y `PROA_GOOGLE_CLIENT_ID` en la página con el ID del cliente creado en el proyecto institucional. El servidor verifica firma, audiencia, vencimiento y dominio de Google. Las cuentas de `ADMIN_EMAILS` son administradoras iniciales; desde Ajustes pueden asignar o quitar el rol a quienes hayan iniciado sesión. Los cambios de rol se guardan en el Durable Object `proa-roles-v1` y prevalecen sobre la lista inicial; debe permanecer al menos una persona administradora. Los roles de la aplicación no transfieren la propiedad de la planilla ni las cuentas de GitHub o Cloudflare.
 
 La nueva planilla permanece privada hasta que su propietaria cambie la configuración de compartir. Un botón que abre el enlace no concede por sí mismo permisos de edición. La opción «cualquier persona con el enlace» permitiría que cualquier destinatario o tercero que obtenga el enlace consulte y modifique las actas.
 
