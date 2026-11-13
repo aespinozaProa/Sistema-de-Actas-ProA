@@ -2,6 +2,7 @@ export function detectPlatform(userAgent,maxTouchPoints=0){if(/android/i.test(us
 
 export function initInstall(){
  const dialog=document.querySelector("#install-dialog"),instructions=document.querySelector("#install-instructions"),nativeButton=document.querySelector("#install-native"),status=document.querySelector("#install-status"),already=document.querySelector("#install-already");
+ if(!dialog)return;
  const steps={
   android:["Abrí esta página en Chrome o en el navegador de tu teléfono.","Tocá el menú de tres puntos del navegador y elegí «Instalar aplicación» o «Agregar a pantalla principal».","Confirmá la instalación. Encontrarás Actas ProA junto a tus otras aplicaciones."],
   ios:["Abrí esta página en el navegador de tu iPhone o iPad.","Tocá el botón Compartir (el cuadrado con una flecha hacia arriba).","Elegí «Agregar a pantalla de inicio» y después tocá «Agregar». Si no aparece, buscá esa opción al final de la lista."],
