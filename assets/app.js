@@ -1,5 +1,5 @@
 import {api,demo,setToken} from "./api.js";
-import {initAuth} from "./auth.js";
+import {initAuth,clearSavedSession} from "./auth.js";
 import {GUIDE_STEPS,startRecording,userVoiceError,transcriptionProposal,normalizeGuideValue,writeGuideValue} from "./voice.js";
 import {hasFullName} from "./nombre.js";
 
@@ -50,7 +50,7 @@ function applySettings(settings){const sizes={normal:1,large:1.15,larger:1.3};co
 function saveSettings(){const settings={size:$("#text-size").value,contrast:$("#high-contrast").checked,spacing:$("#text-spacing").checked};applySettings(settings);try{localStorage.setItem(settingsKey,JSON.stringify(settings));$("#settings-status").textContent="Preferencias guardadas en este dispositivo."}catch{$("#settings-status").textContent="No se pudieron guardar las preferencias en este dispositivo."}}
 try{applySettings(JSON.parse(localStorage.getItem(settingsKey)||"{}"))}catch{applySettings({})}
 ["#text-size","#high-contrast","#text-spacing"].forEach(selector=>$(selector).addEventListener("change",saveSettings));$("#reset-settings").addEventListener("click",()=>{applySettings({});saveSettings()});
-$("#logout").addEventListener("click",()=>{closeGuide();setToken("");window.google?.accounts.id.disableAutoSelect();state.session=null;state.records=[];state.archived=[];state.motivos=[];state.users=[];document.querySelectorAll("form").forEach(form=>form.reset());["#records","#archive-list","#users-list","#detail-content","#motivos","#profile"].forEach(selector=>$(selector).replaceChildren());$("#account-menu").open=false;$("#account-menu").hidden=true;$("#app").hidden=true;$("#login").hidden=false;notice("");if(globalThis.PROA_PUBLIC_ACCESS&&!demo){location.reload();return}if(demo){const url=new URL(location.href);url.searchParams.delete("demo");location.replace(url.href)}});
+$("#logout").addEventListener("click",()=>{closeGuide();clearSavedSession();setToken("");window.google?.accounts.id.disableAutoSelect();state.session=null;state.records=[];state.archived=[];state.motivos=[];state.users=[];document.querySelectorAll("form").forEach(form=>form.reset());["#records","#archive-list","#users-list","#detail-content","#motivos","#profile"].forEach(selector=>$(selector).replaceChildren());$("#account-menu").open=false;$("#account-menu").hidden=true;$("#app").hidden=true;$("#login").hidden=false;notice("");if(globalThis.PROA_PUBLIC_ACCESS&&!demo){location.reload();return}if(demo){const url=new URL(location.href);url.searchParams.delete("demo");location.replace(url.href)}});
 document.addEventListener("keydown",event=>{if(event.key==="Escape"&&$("#account-menu").open){$("#account-menu").open=false;$("#account-menu summary").focus()}});document.addEventListener("click",event=>{if(!event.target.closest("#account-menu"))$("#account-menu").open=false});
 
 document.querySelectorAll("#student-form,#teacher-form").forEach(form=>{form.addEventListener("input",()=>form.dataset.modified="true");form.addEventListener("change",()=>form.dataset.modified="true")});

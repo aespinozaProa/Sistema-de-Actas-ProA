@@ -1,6 +1,8 @@
 # Configuración del sistema de actas
 
-La planilla «Sistema de actas ProA» conserva los registros y sus revisiones en `Actas`. Las hojas `Actas estudiantiles` y `Reuniones docentes` son vistas automáticas filtradas; se actualizan desde `Actas` y no se editan directamente. Cada modificación agrega una revisión; no se borran versiones anteriores. La planilla original no fue modificada para esta migración.
+La planilla «Sistema de actas ProA» conserva los registros, sus revisiones y los ingresos en `Actas`. Las hojas `Actas estudiantiles`, `Reuniones docentes` e `Ingresos al sistema` son vistas automáticas filtradas; se actualizan desde `Actas` y no se editan directamente. Cada modificación agrega una revisión; no se borran versiones anteriores. La planilla original no fue modificada para esta migración.
+
+La sesión institucional dura hasta 24 horas en el mismo navegador. «Cerrar sesión» la elimina de ese dispositivo; se recomienda hacerlo en equipos compartidos. Cada inicio con Google registra nombre, correo y fecha en la planilla. Recuperar una sesión existente al recargar no genera otro ingreso. Si se cambia el secreto del puente, las sesiones existentes dejan de ser válidas.
 
 ## Estado de la conexión
 
