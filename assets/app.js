@@ -2,7 +2,9 @@ import {api,demo,setToken} from "./api.js";
 import {initAuth,clearSavedSession} from "./auth.js";
 import {GUIDE_STEPS,startRecording,userVoiceError,transcriptionProposal,normalizeGuideValue,writeGuideValue} from "./voice.js";
 import {hasFullName} from "./nombre.js";
+import {initInstall} from "./install.js";
 
+initInstall();
 const state={session:null,records:[],archived:[],motivos:[],users:[]};
 const $=selector=>document.querySelector(selector);
 const notice=message=>$("#notice").textContent=message||"";

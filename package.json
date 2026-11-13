@@ -3,6 +3,6 @@
   "private": true,
   "scripts": {
     "test": "node --test worker/test/*.test.js",
-    "check": "node --check assets/app.js && node --check assets/api.js && node --check assets/auth.js && node --check assets/voice.js && node --check worker/src/index.js"
+    "check": "node --check assets/app.js && node --check assets/api.js && node --check assets/auth.js && node --check assets/install.js && node --check assets/voice.js && node --check worker/src/index.js"
   }
 }
