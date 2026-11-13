@@ -1,6 +1,6 @@
 # Configuración del sistema de actas
 
-La nueva planilla «Sistema de actas ProA» tiene una sola hoja, `Actas`, compartida por los dos tipos de actas. Cada modificación agrega una revisión; no se borran versiones anteriores. La planilla original no fue modificada para esta migración.
+La planilla «Sistema de actas ProA» conserva los registros y sus revisiones en `Actas`. Las hojas `Actas estudiantiles` y `Reuniones docentes` son vistas automáticas filtradas; se actualizan desde `Actas` y no se editan directamente. Cada modificación agrega una revisión; no se borran versiones anteriores. La planilla original no fue modificada para esta migración.
 
 ## Estado de la conexión
 

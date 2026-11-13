@@ -1,4 +1,4 @@
-const CACHE="proa-actas-static-v26";
+const CACHE="proa-actas-static-v27";
 const STATIC=["./","./index.html","./assets/styles.css","./assets/logo-proa-transparente.png","./assets/config.js","./assets/app.js","./assets/api.js","./assets/auth.js","./assets/voice.js","./assets/nombre.js","./assets/icons/icon-192.png","./assets/icons/icon-512.png","./manifest.webmanifest"];
 self.addEventListener("install",event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(STATIC)).then(()=>self.skipWaiting())));
 self.addEventListener("activate",event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith("proa-actas-static-")&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
